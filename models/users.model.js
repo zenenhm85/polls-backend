@@ -2,7 +2,6 @@ const { Schema, model } = require('mongoose');
 
 const uniqueValidator = require('mongoose-unique-validator');
 
-
 const UserSchema = Schema({
 
     name: {
