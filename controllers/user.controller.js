@@ -4,6 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 const User = require("../models/users.model");
+const UserPoll = require("../models/user-poll.model");
 const { generateJWT } = require("../helpers/jwt");
 const { uploadImg } = require("../helpers/update-img");
 
@@ -130,6 +131,7 @@ const deleteUser = async (req = request, res = response) => {
 
   try {
     await User.findByIdAndDelete(uid);
+    await UserPoll.deleteMany({"user":uid});
 
     return res.json({
       ok: true,

@@ -29,7 +29,9 @@ app.use(express.json());
 ROUTES
 =============================================*/
 app.use('/api/users', require('./routes/user.route'));
-app.use('/api/login', require('./routes/auth.route'))
+app.use('/api/login', require('./routes/auth.route'));
+app.use('/api/polls', require('./routes/polls.route'));
+app.use('/api/vote', require('./routes/user-poll.route'));
 
 /*=============================================
 DATABASE'S CONNECTION 
