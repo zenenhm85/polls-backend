@@ -32,6 +32,7 @@ app.use('/api/users', require('./routes/user.route'));
 app.use('/api/login', require('./routes/auth.route'));
 app.use('/api/polls', require('./routes/polls.route'));
 app.use('/api/vote', require('./routes/user-poll.route'));
+app.use('/api/search', require('./routes/search.route'));
 
 /*=============================================
 DATABASE'S CONNECTION 

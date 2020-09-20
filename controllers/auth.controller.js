@@ -51,8 +51,46 @@ const tokenRenew = async (req = request, res = response) => {
     res.status(200).json({
       ok: true,
       token,
-      userDB,
+      user:userDB
     });
+  } catch (error) {
+    res.status(500).json({
+      ok: false,
+      message: "Server unexpected error",
+    });
+  }
+};
+const changePassword = async (req = request, res = response) => {
+  try {
+    const { email, password, password2 } = req.body;
+
+    const userDB = await User.findOne({ email });
+
+    if (!userDB) {
+      return res.status(404).json({
+        ok: false,
+        message: "Invalid user or password",
+      });
+    }
+
+    const verifyPassword = await bcrypt.compare(password, userDB.password);
+
+    if (!verifyPassword) {
+      return res.status(404).json({
+        ok: false,
+        message: "Invalid user or password",
+      });
+    }
+
+    const salt = bcrypt.genSaltSync();
+    userDB.password = bcrypt.hashSync(password2, salt);
+    await userDB.save();   
+
+    return res.status(200).json({
+      ok: true,
+      message:"Password changed successfully"
+    });
+    
   } catch (error) {
     res.status(500).json({
       ok: false,
@@ -64,4 +102,5 @@ const tokenRenew = async (req = request, res = response) => {
 module.exports = {
   loginUser,
   tokenRenew,
+  changePassword
 };
