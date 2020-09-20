@@ -9,14 +9,7 @@ const loginUser = async (req = request, res = response) => {
 
   try {
     const userDB = await User.findOne({ email });
-
-    if (!userDB) {
-      return res.status(404).json({
-        ok: false,
-        message: "Invalid user or password",
-      });
-    }
-
+    
     const verifyPassword = await bcrypt.compare(password, userDB.password);
 
     if (!verifyPassword) {
