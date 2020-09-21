@@ -1,0 +1,576 @@
+{
+	"info": {
+		"_postman_id": "c13117b0-1341-4992-9aef-085effcceb02",
+		"name": "Polls backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Test4 Hhghgsjadgasdas fgdfgdfsg \",\n\t\"email\":\"test4@gmail.com\",\n\t\"password\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Polls Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjY2MDI2ZDc0MjMyZDEyNzE2NTYwZTkiLCJpYXQiOjE2MDA2Mjc1NDQsImV4cCI6MTYwMDYzMTE0NH0.9P5lxTknfkHo3K-On6ZMLMeJk-ogBb_iCx47u6Vij1Y",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"question\":\"What editor is better for you?\",\n\t\"answers\":[{\"value\":\"VSCode\", \"votes\":0},{\"value\":\"PHPStorm\", \"votes\":0},{\"value\":\"Sublime Text\", \"votes\":0}]\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/polls",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"polls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vote Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjYzNWQ3OGQ0YWNkNzFiOWEzMGMxODYiLCJpYXQiOjE2MDA0Mzc0MDIsImV4cCI6MTYwMDQ4MDYwMn0.MWeY_UnKYEZXzJyA2nxRX6Z--03-AGkeXT1mMa2dfo0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"poll\":\"5f63d6317a245c467797095f\",\n    \"user\":\"5f635d78d4acd71b9a30c186\",\n    \"vote\":\"Laravel\"\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/vote",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"vote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vote Result",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjY2MDI2ZDc0MjMyZDEyNzE2NTYwZTkiLCJpYXQiOjE2MDA2OTI5MjQsImV4cCI6MTYwMDY5NjUyNH0.KwdAFDbw6KCDGw3h0F3UCTpQT5J-cO6EI4WB4MkRK6Q"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"poll\":\"5f67a881aa17db0e8e3c132b\",\n    \"user\":\"5f62d001bbadca141bed9b9f\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/vote/result",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"vote",
+						"result"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"test2@gmail.com\",\n\t\"password\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjY2MDI2ZDc0MjMyZDEyNzE2NTYwZTkiLCJpYXQiOjE2MDA1MzIzNTcsImV4cCI6MTYwMDU3NTU1N30.sQE99ksFPwkrFmtCH1-NRTHh8jzqfOD7frejpSkncK8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"vale@gmail.com\",\n\t\"password\":\"1234567\",\n    \"password2\":\"123456\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/login/change-password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"login",
+						"change-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjY2MDI2ZDc0MjMyZDEyNzE2NTYwZTkiLCJpYXQiOjE2MDA1NjI1MzQsImV4cCI6MTYwMDYwNTczNH0.5yEnRHvnYrBM52hOskP0PnLPPNgHJHIfJoeX1Jbo_Rg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/api/users?start=0&limit=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjY2MDI2ZDc0MjMyZDEyNzE2NTYwZTkiLCJpYXQiOjE2MDA1NjI1MzQsImV4cCI6MTYwMDYwNTczNH0.5yEnRHvnYrBM52hOskP0PnLPPNgHJHIfJoeX1Jbo_Rg"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/api/search/users/z?limit=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"search",
+						"users",
+						"z"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Polls",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjY2MDI2ZDc0MjMyZDEyNzE2NTYwZTkiLCJpYXQiOjE2MDA2Mjc1NDQsImV4cCI6MTYwMDYzMTE0NH0.9P5lxTknfkHo3K-On6ZMLMeJk-ogBb_iCx47u6Vij1Y"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/api/search/polls/tenni",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"search",
+						"polls",
+						"tenni"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Polls",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjY2MDI2ZDc0MjMyZDEyNzE2NTYwZTkiLCJpYXQiOjE2MDA2ODkxNjAsImV4cCI6MTYwMDY5Mjc2MH0.RT4oNXCaIpvFkDHurLbmaMrhIZXkGt2QOXlQReMTUVo"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/api/polls?start=0&limit=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"polls"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Image",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjYzNWQ3OGQ0YWNkNzFiOWEzMGMxODYiLCJpYXQiOjE2MDA0ODMyOTIsImV4cCI6MTYwMDUyNjQ5Mn0.8P8-_KqLkWwbytJlySZ1KSIMsnE_5dSzkzx6v7_l0As"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/api/users/img/4f27352c-c95f-4ac8-9e33-6b9180fa0b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"img",
+						"4f27352c-c95f-4ac8-9e33-6b9180fa0b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Renew Token",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjY2MDI2ZDc0MjMyZDEyNzE2NTYwZTkiLCJpYXQiOjE2MDA1MjY1MDIsImV4cCI6MTYwMDU2OTcwMn0.WvO8etGNlxTsJDqvnnOh-BtWBGAxHiraAkFKzGQp4qg"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjYzNWQ3OGQ0YWNkNzFiOWEzMGMxODYiLCJpYXQiOjE2MDAzNjcxNjYsImV4cCI6MTYwMDQxMDM2Nn0.KZr-HeoBho2-7uEL_A8iHOiKGHxqrrW1IOrTvu3tO2w"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Valeria Hernández Macias\",\n\t\"email\":\"vale@gmail.com\"\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users/5f635d78d4acd71b9a30c186",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"5f635d78d4acd71b9a30c186"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Poll Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjYzNWQ3OGQ0YWNkNzFiOWEzMGMxODYiLCJpYXQiOjE2MDA0Mzc0MDIsImV4cCI6MTYwMDQ4MDYwMn0.MWeY_UnKYEZXzJyA2nxRX6Z--03-AGkeXT1mMa2dfo0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n     \"answers\" : [ \n        {\n            \"value\" : \"CodeIgniter\",\n            \"votes\" : 0\n        }, \n        {\n            \"value\" : \"Symphonie\",\n            \"votes\" : 0\n        }, \n        {\n            \"value\" : \"Laravel\",\n            \"votes\" : 0\n        },\n        {\n            \"value\" : \"Spring boot\",\n            \"votes\" : 0\n        }\n    ],\n    \"closed\" : false,\n    \"question\" : \"Which backend framework do you prefer for ....\"\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/polls/5f63d6317a245c467797095f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"polls",
+						"5f63d6317a245c467797095f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Img User",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjYyZDAwMWJiYWRjYTE0MWJlZDliOWYiLCJpYXQiOjE2MDAzNDY4NzgsImV4cCI6MTYwMDM5MDA3OH0.t6yRJXSL9tQ3ItAzo-wWmVd3EJese98PBxljjR5Y1SE"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img",
+							"type": "file",
+							"src": "/home/zenen/Imágenes/IMG_20200510_112412903.jpg"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users/upload/5f62d001bbadca141bed9b9f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"upload",
+						"5f62d001bbadca141bed9b9f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjYyZDAwMWJiYWRjYTE0MWJlZDliOWYiLCJpYXQiOjE2MDAzNDY4NzgsImV4cCI6MTYwMDM5MDA3OH0.t6yRJXSL9tQ3ItAzo-wWmVd3EJese98PBxljjR5Y1SE"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Valeria Hernández Macias\",\n\t\"email\":\"vale@gmail.com\"\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users/5f62cd5e4f3a2b13348d8cfc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"5f62cd5e4f3a2b13348d8cfc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Poll",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjYzNWQ3OGQ0YWNkNzFiOWEzMGMxODYiLCJpYXQiOjE2MDAzNjcxNjYsImV4cCI6MTYwMDQxMDM2Nn0.KZr-HeoBho2-7uEL_A8iHOiKGHxqrrW1IOrTvu3tO2w"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/api/polls/5f63c6e541b9b03f0a92a553",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"polls",
+						"5f63c6e541b9b03f0a92a553"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
