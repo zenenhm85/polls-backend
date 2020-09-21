@@ -28,7 +28,7 @@ const loginUser = async (req = request, res = response) => {
   } catch (error) {
     return res.status(500).json({
       ok: false,
-      message: error.message,
+      message: 'Internal Server Error. Possible Server off',
     });
   }
 };

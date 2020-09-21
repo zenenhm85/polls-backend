@@ -53,16 +53,24 @@ const getUserPoll = async (req = request, res = response) => {
   try {
     const { poll, user} = req.body;
 
-    const {id, vote, edited} = await UserPoll.findOne({
+    const result = await UserPoll.findOne({
       $and: [{ user: user }, { poll: poll }],
     });
-
+    if(result){
+      return res.status(200).json({
+        ok: true,
+        id:result.id,
+        vote: result.vote,
+        edited:result.edited
+      });
+    }
     return res.status(200).json({
       ok: true,
-      id,
-      vote,
-      edited
+      id:0,
+      vote: '',
+      edited:false
     });
+    
 
   } catch (error) {
     res.status(500).json({
@@ -88,7 +96,7 @@ const updateVoteOfPoll = async (pollId, vote) => {
     return item;
   });
 
-  await Poll.findOneAndUpdate(pollId, { answers: answersModify });
+  await Poll.findByIdAndUpdate(pollId, { answers: answersModify });
 };
 
 module.exports = {

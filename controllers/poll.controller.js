@@ -33,10 +33,21 @@ const getPolls = async (req = request, res = response) => {
     const start = Number(req.query.start) || 0;
     const limit = Number(req.query.limit) || 5;
 
-    const [polls, total] = await Promise.all([
-      Poll.find().skip(start).limit(limit),
-      Poll.countDocuments(),
-    ]);
+    let polls =[] ;
+    let total = 0;
+    
+    if(req.query.start && req.query.limit){
+      [polls, total] = await Promise.all([
+        Poll.find().skip(start).limit(limit),
+        Poll.countDocuments(),
+      ]);
+    }
+    else{
+      [polls, total] = await Promise.all([
+        Poll.find(),
+        Poll.countDocuments(),
+      ]);
+    } 
 
     return res.status(200).json({
       ok: true,
@@ -51,6 +62,7 @@ const getPolls = async (req = request, res = response) => {
     });
   }
 };
+
 /*==========================================================
 PUT
 ===========================================================*/
